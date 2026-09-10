@@ -1,0 +1,100 @@
+
+  <main class="container">
+    <section class="esquerda">
+      <img src="/assets/img/ranger.png" alt="Caminhonete Ford Ranger" class="ranger-foto">
+    </section>
+
+
+   
+    <section class="direita">
+      <div class="login">
+        <div class="logo-container">
+          <img src="/assets/img/ford.png" alt="Ford Logo" class="ford-logo">
+        </div>
+
+
+       
+        <h4 class="boasvindas-titulo">Boas-vindas</h4>
+
+
+   
+        <form action="#" method="POST" class="login-form" novalidate>
+          <div class="entrada email-active">
+            <i class="fa-regular fa-user icon-esquerda"></i>
+            <input id="email-login" type="email" placeholder="Insira seu e-mail" required>
+            <i class="fa-solid fa-xmark icon-direita"></i>
+          </div>
+          <i class="fa-regular fa-circle-question icon-info"></i>
+
+
+         
+          <div class="entrada">
+            <i class="fa-solid fa-lock icon-esquerda"></i>
+            <input id="senha-login" type="password" placeholder="Insira sua senha" required>
+          </div>
+          <i class="fa-regular fa-circle-question icon-info"></i>
+
+
+         
+          <div class="alternar-container">
+            <span class="alternar-logar">Logar automaticamente</span>
+            <label class="switch">
+              <input type="checkbox" id="autoLogin">
+              <span class="slider round"></span>
+            </label>
+          </div>
+          <i class="fa-regular fa-circle-question icon-info"></i>
+
+
+         
+          <button type="submit" class="botao-entrar">Entrar</button>
+
+
+        </form>
+      </div>
+
+
+    </section>
+
+
+  </main>
+
+  <script>
+    const loginForm = document.querySelector('.login-form');
+    const emailInput = document.getElementById('email-login');
+    const senhaInput = document.getElementById('senha-login');
+
+    loginForm.addEventListener('submit', function (event) {
+      const email = emailInput.value.trim();
+      const senha = senhaInput.value.trim();
+
+      if (!email || !senha) {
+        event.preventDefault();
+        alert('É obrigatório preencher e-mail e senha para entrar.');
+
+        if (!email) {
+          emailInput.focus();
+        } else {
+          senhaInput.focus();
+        }
+        return;
+      }
+
+      if (!email.includes('@', 0)) {
+        event.preventDefault();
+        alert('Digite um e-mail válido.');
+        emailInput.focus();
+        return;
+      }
+
+      if (senha.length < 8) {
+        event.preventDefault();
+        alert('A senha deve ter no mínimo 8 caracteres.');
+        senhaInput.focus();
+        return;
+      }
+
+      event.preventDefault();
+      window.location.href = 'home.html';
+    });
+  </script>

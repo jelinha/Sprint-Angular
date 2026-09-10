@@ -1,0 +1,112 @@
+ <button id="menu-btn" class="menu-btn" aria-label="Abrir Menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-header">
+      <img src="/assets/img/ford.png" alt="Logo Ford" class="logo-ford" />
+    </div>
+    <nav class="nav-links">
+      <a href="home.html" class="nav-link">Home</a>
+      <a href="dashboard.html" class="nav-link active">Dashboard</a> 
+    </nav>
+  
+    <button id="logout-btn" class="Btn">
+      <div class="sign">
+        <svg viewBox="0 0 512 512">
+          <path d="M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM160 96L96 96c-17.7 0-32 14.3-32 32l0 256c0 17.7 14.3 32 32 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75 43 32 96 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z"></path>
+        </svg>
+      </div>
+      <div class="text">Sair</div>
+    </button>
+  </aside>
+
+
+  <div class="dashboard-container">
+   
+    <header class="header">
+      <h1 class="titulo-dashboard">Dashboard FORD</h1>
+    </header>
+
+  
+    <section class="cards-row">
+      
+      <div class="card card-veiculo">
+        <div class="card-header">Veículo</div>
+        <div class="card-body">
+          <div class="custom-select" id="veiculo-select-container">
+            <div class="select-selected">Mustang <span class="arrow">&#711;</span></div>
+            <ul class="select-items">
+              <li>Ranger</li>
+              <li class="active">Mustang</li>
+              <li>Territory</li>
+              <li>Bronco Sport</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    
+      <div class="card">
+        <div class="card-header">Total de Vendas</div>
+        <div class="card-body info-body">
+          <span class="card-value" id="val-vendas">1500</span>
+          <span class="card-unit">Unid.</span>
+        </div>
+      </div>
+
+     
+      <div class="card">
+        <div class="card-header">Conectados</div>
+        <div class="card-body info-body">
+          <span class="card-value" id="val-conectados">500</span>
+          <span class="card-unit">Unid.</span>
+        </div>
+      </div>
+
+
+      <div class="card">
+        <div class="card-header">Update Software</div>
+        <div class="card-body info-body">
+          <span class="card-value" id="val-update">750</span>
+          <span class="card-unit">Unid.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="image-section">
+      <img id="carro-img" src="/assets/img/mustang.png" alt="Ford Mustang" />
+    </section>
+
+    <section class="table-section">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Código - Vin</th>
+            <th>Odômetro</th>
+            <th>Nível de Combustível</th>
+            <th>Status</th>
+            <th>Lat.</th>
+            <th>Long.</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <input type="text" class="vin-input" id="tabela-vin" value="2FRHDUYS2Y63NHD22455" readonly />
+            </td>
+            <td><strong id="tabela-odo">50000 Km</strong></td>
+            <td><strong id="tabela-comb">90 %</strong></td>
+            <td><strong id="tabela-status">on</strong></td>
+            <td><strong id="tabela-lat">-12,2322</strong></td>
+            <td><strong id="tabela-long">-35,2314</strong></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="table-bottom-line"></div>
+    </section>
+  </div>
+
+  <script src="/js/dashboard.js"></script>
