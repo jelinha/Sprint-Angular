@@ -1,14 +1,4 @@
-<app-menu></app-menu>
-    
-    <div class="home-pagina">
-      <section class="home-card" aria-label="Boas-vindas">
-        <div class="card-header">Sistema de dados FORD</div>
-        <h1 class="boas-vindas-texto">Seja bem vindo(a)!</h1>
-      </section>
-    </div>
 
-  
-    <script>
       const menuBtn = document.getElementById('menu-btn');
       const sidebar = document.getElementById('sidebar');
       const logoutBtn = document.getElementById('logout-btn');
@@ -28,6 +18,4 @@
           sidebar.classList.remove('open');
           menuBtn.classList.remove('open');
         }
-      });
-      
-    </script>
+        });
