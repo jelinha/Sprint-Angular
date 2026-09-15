@@ -1,0 +1,23 @@
+<button id="menu-btn" class="menu-btn" [class.open]="isOpen" aria-label="Abrir Menu" (click)="toggleMenu()">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
+
+<aside id="sidebar" class="sidebar" [class.open]="isOpen">
+  <div class="sidebar-header">
+    <img src="/img/ford.png" alt="Logo Ford" class="logo-ford" />
+  </div>
+
+  <nav class="nav-links">
+    <a routerLink="/home" class="nav-link" routerLinkActive="active" (click)="closeMenu()">Home</a>
+    <a routerLink="/dashboard" class="nav-link" routerLinkActive="active" (click)="closeMenu()">Dashboard</a>
+  </nav>
+
+  <button id="logout-btn" class="Btn" type="button" (click)="logout()">
+    <div class="sign">
+      
+    </div>
+    <div class="text">Sair</div>
+  </button>
+</aside>

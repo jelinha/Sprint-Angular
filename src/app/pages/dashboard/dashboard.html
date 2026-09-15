@@ -1,0 +1,84 @@
+<app-menu></app-menu>
+
+<div class="dashboard-container">
+  <header class="header">
+    <h1 class="titulo-dashboard">Dashboard FORD</h1>
+  </header>
+
+  <section class="cards-row">
+    <div class="card card-veiculo">
+      <div class="card-header">Veículo</div>
+      <div class="card-body">
+        <label for="carroSelect">Selecione o carro:</label>
+        <select id="carroSelect" name="carro" (change)="veiculoEscolhido($event)">
+          <option value="" selected disabled hidden>Escolha um carro</option>
+          <option *ngFor="let v of veiculos" [value]="v.id">
+            {{ v.vehicle }}
+          </option>
+        </select>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">Total de Vendas</div>
+      <div class="card-body info-body">
+        <span class="card-value" id="val-vendas">
+          {{ veiculoSelecionado?.volumetotal || 0 }}
+        </span>
+        <span class="card-unit">Unid.</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">Conectados</div>
+      <div class="card-body info-body">
+        <span class="card-value" id="val-conectados">
+          {{ veiculoSelecionado?.connected || 0 }}
+        </span>
+        <span class="card-unit">Unid.</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">Update Software</div>
+      <div class="card-body info-body">
+        <span class="card-value" id="val-update">
+          {{ veiculoSelecionado?.softwareUpdates || 0 }}
+        </span>
+        <span class="card-unit">Unid.</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="image-section" *ngIf="veiculoSelecionado">
+    <img id="carro-img" [src]="veiculoSelecionado.imagem" [alt]="veiculoSelecionado.vehicle" />
+  </section>
+
+  <section class="table-section">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Código - Vin</th>
+          <th>Odômetro</th>
+          <th>Nível de Combustível</th>
+          <th>Status</th>
+          <th>Lat.</th>
+          <th>Long.</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <input type="text" class="vin-input" id="tabela-vin" [value]="vinDigitado" readonly />
+          </td>
+          <td><strong>{{ odometro }} Km</strong></td>
+          <td><strong>{{ nivelCombustivel }} %</strong></td>
+          <td><strong>{{ statusVeiculo }}</strong></td>
+          <td><strong>{{ lat }}</strong></td>
+          <td><strong>{{ long }}</strong></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="table-bottom-line"></div>
+  </section>
+</div>
