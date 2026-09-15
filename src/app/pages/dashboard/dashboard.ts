@@ -23,15 +23,6 @@ export class Dashboard implements OnInit {
   lat: number = 0;
   long: number = 0;
 
-  private mapVins: { [key: number]: string } = {
-    1: "2FRHDUYS2Y63NHD22454",
-    2: "2RFAASDY54E4HDU34874",
-    3: "2FRHDUYS2Y63NHD22455",
-    4: "2RFAASDY54E4HDU34875",
-    5: "2FRHDUYS2Y63NHD22654",
-    6: "2FRHDUYS2Y63NHD22854"
-  };
-
   constructor(private vehicleService: Vehicles) {}
 
   ngOnInit(): void {
@@ -50,13 +41,7 @@ export class Dashboard implements OnInit {
 
     if (idSelecionado) {
       this.veiculoSelecionado = this.veiculos.find(v => v.id == idSelecionado) || null;
-
-      const vinEncontrado = this.mapVins[idSelecionado];
-
-      if (vinEncontrado) {
-        this.vinDigitado = vinEncontrado;
-        this.buscarDadosPorVin(vinEncontrado);
-      }
+      this.limparTabela();
     } else {
       this.veiculoSelecionado = null;
       this.limparTabela();
@@ -64,7 +49,13 @@ export class Dashboard implements OnInit {
   }
 
   buscarDadosPorVin(vin: string): void {
-    this.vehicleService.getDataVeiculo(vin).subscribe({
+    const vinPesquisado = vin.trim();
+
+    if (!vinPesquisado) {
+      return;
+    }
+
+    this.vehicleService.getDataVeiculo(vinPesquisado).subscribe({
       next: (dados) => {
         this.odometro = dados.odometro;
         this.nivelCombustivel = dados.nivelCombustivel;

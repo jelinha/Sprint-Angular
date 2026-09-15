@@ -69,7 +69,24 @@
       <tbody>
         <tr>
           <td>
-            <input type="text" class="vin-input" id="tabela-vin" [value]="vinDigitado" readonly />
+            <div class="vin-search">
+              <input
+                type="text"
+                class="vin-input"
+                id="tabela-vin"
+                [(ngModel)]="vinDigitado"
+                placeholder="Digite o código VIN"
+                (keyup.enter)="buscarDadosPorVin(vinDigitado)"
+              />
+              <button
+                type="button"
+                class="vin-search-button"
+                (click)="buscarDadosPorVin(vinDigitado)"
+                [disabled]="!vinDigitado.trim()"
+              >
+                Pesquisar
+              </button>
+            </div>
           </td>
           <td><strong>{{ odometro }} Km</strong></td>
           <td><strong>{{ nivelCombustivel }} %</strong></td>

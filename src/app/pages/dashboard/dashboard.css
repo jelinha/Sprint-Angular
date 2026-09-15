@@ -207,6 +207,47 @@ body {
 .card-body { padding: 24px; position: relative; }
 .info-body { display: flex; flex-direction: column; justify-content: center; }
 
+.card-veiculo .card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.card-veiculo label {
+  color: #555;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+#carroSelect {
+  width: 100%;
+  min-height: 48px;
+  padding: 0 42px 0 14px;
+  border: 1px solid #b9c7d6;
+  border-radius: 4px;
+  outline: none;
+  background-color: #fff;
+  background-image: linear-gradient(45deg, transparent 50%, #00478f 50%),
+    linear-gradient(135deg, #00478f 50%, transparent 50%);
+  background-position: calc(100% - 19px) 21px, calc(100% - 13px) 21px;
+  background-size: 6px 6px, 6px 6px;
+  background-repeat: no-repeat;
+  color: #333;
+  cursor: pointer;
+  font-size: 16px;
+  appearance: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+#carroSelect:hover {
+  border-color: #0073d1;
+}
+
+#carroSelect:focus {
+  border-color: #0073d1;
+  box-shadow: 0 0 0 3px rgba(0, 115, 209, 0.16);
+}
+
 .card-value {
   font-size: 34px;
   font-weight: bold;
@@ -281,7 +322,31 @@ body {
 }
 .data-table th:last-child { border-right: none; }
 .data-table td { padding: 20px; font-size: 16px; border-bottom: 1px solid #eee; color: #000; }
-.vin-input { border: 1px solid #ccc; padding: 9px; width: 260px; font-size: 15px; outline: none; }
+.vin-search { display: flex; align-items: stretch; gap: 8px; min-width: 360px; }
+.vin-input {
+  border: 1px solid #b9c7d6;
+  border-radius: 4px;
+  padding: 9px 10px;
+  width: 260px;
+  min-width: 0;
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.vin-input:focus { border-color: #0073d1; box-shadow: 0 0 0 3px rgba(0, 115, 209, 0.16); }
+.vin-search-button {
+  border: none;
+  border-radius: 4px;
+  padding: 0 16px;
+  background-color: #00478f;
+  color: #fff;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background-color 0.2s ease, opacity 0.2s ease;
+}
+.vin-search-button:hover:not(:disabled) { background-color: #0073d1; }
+.vin-search-button:disabled { cursor: not-allowed; opacity: 0.45; }
 .table-bottom-line { height: 12px; background-color: #00478f; width: 100%; margin-top: 5px; }
 
 @media (max-width: 768px) {
@@ -289,6 +354,8 @@ body {
   .titulo-dashboard { font-size: 26px; }
   .cards-row { flex-direction: column; gap: 16px; }
   .card { min-height: 125px; }
+  .vin-search { min-width: 0; }
+  .vin-input { width: 100%; }
   .data-table { min-width: 760px; }
   .table-section { overflow-x: auto; }
 }

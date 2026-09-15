@@ -144,7 +144,7 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  width: 56px;
+  width: 130px;
   height: 48px;
   border: none;
   border-radius: 24px;
@@ -161,11 +161,12 @@
 }
 
 .sign {
-  width: 100%;
+  width: 30%;
   transition-duration: 0.3s;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-left: 10px;
 }
 
 .sign svg {
@@ -179,8 +180,8 @@
 .text {
   position: absolute;
   right: 0%;
-  width: 0%;
-  opacity: 0;
+  width: 70%;
+  opacity: 1;
   color: white;
   font-size: 1rem;
   font-weight: 700;
@@ -193,18 +194,7 @@
   transition-duration: 0.3s;
 }
 
-.Btn:hover .sign {
-  width: 30%;
-  transition-duration: 0.3s;
-  padding-left: 10px;
-}
-
-.Btn:hover .text {
-  opacity: 1;
-  width: 70%;
-  transition-duration: 0.3s;
-  padding-right: 10px;
-}
+.Btn:hover .text { padding-right: 10px; }
 
 .Btn:active {
   transform: translateY(2px);
